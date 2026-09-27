@@ -1,0 +1,19 @@
+{
+  "meta_title": "The Accidental Advocacy of Rural Rising Ph",
+  "meta_description": "Discover the accidental advocacy of Rural Rising Philippines: Rescue Buy, farmer partnerships, community programs, media stories and songs.",
+  "theme_color": "#124826",
+  "logo": "/assets/ruri-mark.png",
+  "brand_name": "Rural Rising",
+  "brand_suffix": "Philippines",
+  "contact_label": "Get in touch",
+  "contact_email": "ace@ruralrisingph.com",
+  "navigation": [
+    { "label": "Our story", "anchor": "story" },
+    { "label": "Programs", "anchor": "programs" },
+    { "label": "In the media", "anchor": "media" },
+    { "label": "Get involved", "anchor": "join" }
+  ],
+  "footer_name": "Rural Rising Philippines",
+  "footer_tagline": "From farmer to family, with care."
+}
+

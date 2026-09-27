@@ -1,0 +1,67 @@
+{
+  "eyebrow": "02 / WAYS WE WORK",
+  "heading": "Rescue is a team effort.",
+  "introduction": "Programs for companies, employees, communities and people who want to help.",
+  "items": [
+    {
+      "title": "Company Rescue Buy™",
+      "description": "Produce rescued and distributed to employees.",
+      "actions": [
+        { "label": "Watch how it works", "type": "video", "target": "P7jfTpCwTQk" }
+      ]
+    },
+    {
+      "title": "Office RuRiPop",
+      "description": "A pop-up farmer’s market at the office.",
+      "actions": [
+        { "label": "Watch RuRiPop", "type": "video", "target": "OBd6gcYeMt8" }
+      ]
+    },
+    {
+      "title": "Employee Veggie Subscription",
+      "description": "Bagged fresh produce delivered to the office every month.",
+      "actions": []
+    },
+    {
+      "title": "Box-All-You-Can",
+      "description": "Fruits and vegetables, and an exciting game of helping.",
+      "actions": [
+        { "label": "Watch feature", "type": "video", "target": "fWfkHkyaCaY" },
+        { "label": "Watch another feature", "type": "video", "target": "AA3ZQoKUwLA" },
+        { "label": "Watch one more", "type": "video", "target": "2_CFZt06Q10" }
+      ]
+    },
+    {
+      "title": "RuRiClub",
+      "description": "RuRi’s online store.",
+      "actions": [
+        { "label": "Visit the store", "type": "url", "target": "https://ruriclub.com/" }
+      ]
+    },
+    {
+      "title": "Camp Mingan Nature Park",
+      "description": "RuRi’s forest, water and eagle conservation project.",
+      "actions": [
+        { "label": "Visit Camp Mingan", "type": "url", "target": "https://campmingan.com/" },
+        { "label": "Watch the story", "type": "video", "target": "aLIJjsjKkxg" },
+        { "label": "Watch another story", "type": "video", "target": "n5gkzdxkuBM" }
+      ]
+    },
+    {
+      "title": "Food for the Poor",
+      "description": "Food donations to hungry communities and community pantries.",
+      "actions": [
+        { "label": "Watch the work", "type": "video", "target": "69VOFAfoVJg" },
+        { "label": "Watch another story", "type": "video", "target": "h4ZGRpuTD0Y" }
+      ]
+    },
+    {
+      "title": "RuRi × DSWD",
+      "description": "A partnership supporting the Walang Gutom Kitchen.",
+      "actions": [
+        { "label": "Watch the partnership", "type": "video", "target": "j2ZNA_xv0oo" }
+      ]
+    }
+  ]
+}
+

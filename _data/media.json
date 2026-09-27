@@ -1,0 +1,18 @@
+{
+  "eyebrow": "03 / THE STORY TRAVELS",
+  "heading": "RuRi in the media.",
+  "introduction": "Watch the broadcast features here, or visit their original videos.",
+  "items": [
+    { "title": "CNN", "type": "BROADCAST FEATURE", "video_id": "aQk1NkmT1DY" },
+    { "title": "Al Jazeera", "type": "BROADCAST FEATURE", "video_id": "DGWGb1k0N7I" },
+    { "title": "Kapuso Mo, Jessica Soho", "type": "BROADCAST FEATURE", "video_id": "qrthaZe1Eyk" },
+    { "title": "Go Humans", "type": "BROADCAST FEATURE", "video_id": "5CSxitjlhVM" },
+    { "title": "Arlyn dela Cruz Reports", "type": "BROADCAST FEATURE", "video_id": "3SisfqeMVvU" },
+    { "title": "Korina Sanchez", "type": "CONVERSATION", "video_id": "aoGgSiW8b9c" },
+    { "title": "Noli de Castro", "type": "CONVERSATION", "video_id": "Dp6V5yBqUzA" },
+    { "title": "Ted Failon", "type": "CONVERSATION", "video_id": "JrcQKQRr1Y8" },
+    { "title": "Angel Locsin", "type": "CONVERSATION", "video_id": "S8czx44Sav8" },
+    { "title": "Dingdong Dantes", "type": "CONVERSATION", "video_id": "cODu7l2BL9w" }
+  ]
+}
+

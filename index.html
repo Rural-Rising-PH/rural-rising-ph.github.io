@@ -1,219 +1,175 @@
-<!doctype html>
+---
+---
+{% assign settings = site.data.site %}
+{% assign hero = site.data.hero %}
+{% assign story = site.data.story %}
+{% assign impact = site.data.impact %}
+{% assign programs = site.data.programs %}
+{% assign origin = site.data.origin %}
+{% assign media = site.data.media %}
+{% assign publications = site.data.publications %}
+{% assign recognition = site.data.recognition %}
+{% assign songs = site.data.songs %}
+{% assign join = site.data.join %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#124826">
-  <meta name="description" content="Discover the accidental advocacy of Rural Rising Philippines: Rescue Buy, farmer partnerships, community programs, media stories and songs.">
-  <title>The Accidental Advocacy of Rural Rising Ph</title>
-  <link rel="icon" href="assets/ruri-mark.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
-  <script src="site.js" defer></script>
+  <meta name="theme-color" content="{{ settings.theme_color | escape }}">
+  <meta name="description" content="{{ settings.meta_description | escape }}">
+  <title>{{ settings.meta_title | escape }}</title>
+  <link rel="icon" href="{{ settings.logo | relative_url }}" type="image/png">
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+  <script src="{{ '/site.js' | relative_url }}" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Rural Rising Philippines, back to top"><img src="assets/ruri-mark.png" alt="" width="58" height="67"><span>Rural Rising <small>Philippines</small></span></a>
-    <nav aria-label="Main navigation"><a href="#story">Our story</a><a href="#programs">Programs</a><a href="#media">In the media</a><a href="#join">Get involved</a></nav>
-    <a class="header-contact" href="mailto:ace@ruralrisingph.com">Get in touch <span aria-hidden="true">↗</span></a>
+    <a class="brand" href="#top" aria-label="{{ settings.footer_name | escape }}, back to top">
+      <img src="{{ settings.logo | relative_url }}" alt="" width="58" height="67">
+      <span>{{ settings.brand_name | escape }} <small>{{ settings.brand_suffix | escape }}</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      {% for item in settings.navigation %}<a href="#{{ item.anchor | escape }}">{{ item.label | escape }}</a>{% endfor %}
+    </nav>
+    <a class="header-contact" href="mailto:{{ settings.contact_email | escape }}">{{ settings.contact_label | escape }} <span aria-hidden="true">↗</span></a>
   </header>
 
   <main id="main">
     <section class="hero section-wrap" id="top" aria-labelledby="hero-title">
-      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-rule"></span> A farmer-first movement, since 2020</p><h1 id="hero-title">The Accidental Advocacy of <em>Rural Rising Ph</em></h1><p>What started with one viral post became a community helping Filipino farmers put good food on more tables.</p><div class="hero-actions"><button class="button button-dark video-trigger" data-video="69PcdQkLR-s" data-title="Rise, RuRi Rise">▶ &nbsp; Watch the story</button><a class="text-link" href="#story">Explore our story <span aria-hidden="true">↘</span></a></div></div>
-      <button class="hero-image video-trigger" data-video="69PcdQkLR-s" data-title="Rise, RuRi Rise" aria-label="Play Rise, RuRi Rise"><img src="assets/rescue-buy-trucks.webp" alt="Trucks loaded with rescued produce in the highlands" width="2290" height="619"><span class="hero-image-label"><span class="play-round" aria-hidden="true">▶</span><span>Watch Rise, RuRi Rise</span></span></button>
-      <div class="hero-caption"><span>Rescue Buy™ in action</span><span>From the farm, with purpose.</span></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> {{ hero.eyebrow | escape }}</p>
+        <h1 id="hero-title">{{ hero.title_prefix | escape }} <em>{{ hero.title_emphasis | escape }}</em></h1>
+        <p>{{ hero.body | escape }}</p>
+        <div class="hero-actions">
+          <button class="button button-dark video-trigger" type="button" data-video="{{ hero.video_id | escape }}" data-title="{{ hero.video_title | escape }}">▶ &nbsp; {{ hero.video_label | escape }}</button>
+          <a class="text-link" href="#story">Explore our story <span aria-hidden="true">↘</span></a>
+        </div>
+      </div>
+      <button class="hero-image video-trigger" type="button" data-video="{{ hero.video_id | escape }}" data-title="{{ hero.video_title | escape }}" aria-label="Play {{ hero.video_title | escape }}">
+        <img src="{{ hero.image | relative_url }}" alt="{{ hero.image_alt | escape }}" width="2290" height="619">
+        <span class="hero-image-label"><span class="play-round" aria-hidden="true">▶</span><span>{{ hero.image_label | escape }}</span></span>
+      </button>
+      <div class="hero-caption"><span>{{ hero.caption_left | escape }}</span><span>{{ hero.caption_right | escape }}</span></div>
     </section>
 
-    <section class="story-band" id="story" aria-labelledby="story-title"><div class="section-wrap story-layout"><div><p class="eyebrow light">01 / THE STORY</p><h2 id="story-title">Good food deserves a way forward.</h2></div><div class="story-text"><p>Rural Rising Philippines (RuRi) is an organic, grassroots effort to help distressed Filipino farmers get back on their feet so they can once again feed the nation with pride.</p><p>It began in 2020, when an online post about produce being given away for free at the Baguio City public market went viral. Through <strong>Rescue Buy™</strong>, RuRi buys surplus produce at twice the farmgate price and distributes it to consumers at half the supermarket price. Unclaimed produce goes to hungry urban communities, animal rescue shelters, and the DSWD Walang Gutom Kitchen.</p><p>The conversations and stories at RuRi are led and written by spouses Ace and Andie Estrada.</p><div class="social-links"><a href="#top">Home ↑</a><a href="https://web.facebook.com/groups/RuRiPh/" target="_blank" rel="noopener noreferrer">Facebook group ↗</a><a href="https://web.facebook.com/ruralrisingph" target="_blank" rel="noopener noreferrer">Facebook page ↗</a><a href="https://www.instagram.com/ruralrisingph" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div></div></section>
+    <section class="story-band" id="story" aria-labelledby="story-title">
+      <div class="section-wrap story-layout">
+        <div><p class="eyebrow light">{{ story.eyebrow | escape }}</p><h2 id="story-title">{{ story.heading | escape }}</h2></div>
+        <div class="story-text">
+          {{ story.body }}
+          <div class="social-links">
+            {% for item in story.links %}
+            <a href="{{ item.url | escape }}"{% if item.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.label | escape }} {% if item.external %}↗{% else %}↑{% endif %}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="impact section-wrap" aria-label="Rural Rising impact figures"><p class="eyebrow">THE COMMUNITY BEHIND THE WORK</p><div class="impact-grid"><div><strong>Nearly 5M</strong><span>kilos of produce rescued</span></div><div><strong>4,500</strong><span>farmers worked with directly</span></div><div><strong>63,000</strong><span>families impacted</span></div><div><strong>39</strong><span>Philippine provinces reached</span></div></div><p class="impact-note">Figures shared in “The Accidental Advocacy of Rural Rising Ph,” alongside 50,000 Facebook group members, 315,000 Facebook followers and 15,000 Viber subscribers.</p></section>
+    <section class="impact section-wrap" aria-label="Rural Rising impact figures">
+      <p class="eyebrow">{{ impact.eyebrow | escape }}</p>
+      <div class="impact-grid">
+        {% for statistic in impact.statistics %}<div><strong>{{ statistic.value | escape }}</strong><span>{{ statistic.label | escape }}</span></div>{% endfor %}
+      </div>
+      <p class="impact-note">{{ impact.note | escape }}</p>
+    </section>
 
-    <section class="section-wrap programs-section" id="programs" aria-labelledby="programs-title"><div class="section-head"><div><p class="eyebrow">02 / WAYS WE WORK</p><h2 id="programs-title">Rescue is a team effort.</h2></div><p>Programs for companies, employees, communities and people who want to help.</p></div><div id="program-grid" class="program-grid">
-  <article class="program-card">
-    <span class="card-number">01 / 08</span>
-    <h3>Company Rescue Buy™</h3>
-    <p>Produce rescued and distributed to employees.</p>
-    <div class="card-actions">
-      <button class="action-link video-trigger" type="button" data-video="P7jfTpCwTQk" data-title="Company Rescue Buy™ — Watch how it works">Watch how it works <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">02 / 08</span>
-    <h3>Office RuRiPop</h3>
-    <p>A pop-up farmer’s market at the office.</p>
-    <div class="card-actions">
-      <button class="action-link video-trigger" type="button" data-video="OBd6gcYeMt8" data-title="Office RuRiPop — Watch RuRiPop">Watch RuRiPop <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">03 / 08</span>
-    <h3>Employee Veggie Subscription</h3>
-    <p>Bagged fresh produce delivered to the office every month.</p>
-    <div class="card-actions">
-      
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">04 / 08</span>
-    <h3>Box-All-You-Can</h3>
-    <p>Fruits and vegetables, and an exciting game of helping.</p>
-    <div class="card-actions">
-      <button class="action-link video-trigger" type="button" data-video="fWfkHkyaCaY" data-title="Box-All-You-Can — Watch feature">Watch feature <span aria-hidden="true">▶</span></button>
-      <button class="action-link video-trigger" type="button" data-video="AA3ZQoKUwLA" data-title="Box-All-You-Can — Watch another feature">Watch another feature <span aria-hidden="true">▶</span></button>
-      <button class="action-link video-trigger" type="button" data-video="2_CFZt06Q10" data-title="Box-All-You-Can — Watch one more">Watch one more <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">05 / 08</span>
-    <h3>RuRiClub</h3>
-    <p>RuRi’s online store.</p>
-    <div class="card-actions">
-      <a class="action-link" href="https://ruriclub.com/" target="_blank" rel="noopener noreferrer">Visit the store ↗</a>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">06 / 08</span>
-    <h3>Camp Mingan Nature Park</h3>
-    <p>RuRi’s forest, water and eagle conservation project.</p>
-    <div class="card-actions">
-      <a class="action-link" href="https://campmingan.com/" target="_blank" rel="noopener noreferrer">Visit Camp Mingan ↗</a>
-      <button class="action-link video-trigger" type="button" data-video="aLIJjsjKkxg" data-title="Camp Mingan Nature Park — Watch the story">Watch the story <span aria-hidden="true">▶</span></button>
-      <button class="action-link video-trigger" type="button" data-video="n5gkzdxkuBM" data-title="Camp Mingan Nature Park — Watch another story">Watch another story <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">07 / 08</span>
-    <h3>Food for the Poor</h3>
-    <p>Food donations to hungry communities and community pantries.</p>
-    <div class="card-actions">
-      <button class="action-link video-trigger" type="button" data-video="69VOFAfoVJg" data-title="Food for the Poor — Watch the work">Watch the work <span aria-hidden="true">▶</span></button>
-      <button class="action-link video-trigger" type="button" data-video="h4ZGRpuTD0Y" data-title="Food for the Poor — Watch another story">Watch another story <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-  <article class="program-card">
-    <span class="card-number">08 / 08</span>
-    <h3>RuRi × DSWD</h3>
-    <p>A partnership supporting the Walang Gutom Kitchen.</p>
-    <div class="card-actions">
-      <button class="action-link video-trigger" type="button" data-video="j2ZNA_xv0oo" data-title="RuRi × DSWD — Watch the partnership">Watch the partnership <span aria-hidden="true">▶</span></button>
-    </div>
-  </article>
-</div></section>
+    <section class="section-wrap programs-section" id="programs" aria-labelledby="programs-title">
+      <div class="section-head"><div><p class="eyebrow">{{ programs.eyebrow | escape }}</p><h2 id="programs-title">{{ programs.heading | escape }}</h2></div><p>{{ programs.introduction | escape }}</p></div>
+      <div id="program-grid" class="program-grid">
+        {% assign program_total = programs.items | size %}
+        {% for program in programs.items %}
+        <article class="program-card">
+          <span class="card-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }} / {{ program_total | prepend: '0' | slice: -2, 2 }}</span>
+          <h3>{{ program.title | escape }}</h3>
+          <p>{{ program.description | escape }}</p>
+          <div class="card-actions">
+            {% for action in program.actions %}{% capture action_title %}{{ program.title }} — {{ action.label }}{% endcapture %}{% include action.html action=action title=action_title %}{% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
 
-    <section class="origin-section" aria-labelledby="origin-title"><div class="section-wrap"><div class="section-head"><div><p class="eyebrow">THE PEOPLE & THE PRODUCE</p><h2 id="origin-title">How it started. Why it continues.</h2></div></div><div class="origin-grid"><figure><img src="assets/viral-post.webp" alt="The Facebook post about free produce that sparked Rural Rising" loading="lazy"><figcaption>The viral Facebook post that started it all</figcaption></figure><figure><img src="assets/ace-and-andie.webp" alt="Founders Ace and Andie Estrada" loading="lazy"><figcaption>Founders Ace and Andie Estrada</figcaption></figure><figure><img src="assets/cauliflower-rescue.webp" alt="A farmer posing with a truck full of cauliflower" loading="lazy"><figcaption>A cauliflower Rescue Buy™</figcaption></figure></div></div></section>
+    <section class="origin-section" aria-labelledby="origin-title">
+      <div class="section-wrap">
+        <div class="section-head"><div><p class="eyebrow">{{ origin.eyebrow | escape }}</p><h2 id="origin-title">{{ origin.heading | escape }}</h2></div></div>
+        <div class="origin-grid">
+          {% for item in origin.images %}<figure><img src="{{ item.image | relative_url }}" alt="{{ item.alt | escape }}" loading="lazy"><figcaption>{{ item.caption | escape }}</figcaption></figure>{% endfor %}
+        </div>
+      </div>
+    </section>
 
-    <section class="media-section section-wrap" id="media" aria-labelledby="media-title"><div class="section-head"><div><p class="eyebrow">03 / THE STORY TRAVELS</p><h2 id="media-title">RuRi in the media.</h2></div><p>Watch the broadcast features here, or visit their original videos.</p></div><div id="media-grid" class="media-grid">
-  <button class="media-card video-trigger" type="button" data-video="aQk1NkmT1DY" data-title="CNN">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/aQk1NkmT1DY/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">BROADCAST FEATURE</span><strong>CNN</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="DGWGb1k0N7I" data-title="Al Jazeera">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/DGWGb1k0N7I/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">BROADCAST FEATURE</span><strong>Al Jazeera</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="qrthaZe1Eyk" data-title="Kapuso Mo, Jessica Soho">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/qrthaZe1Eyk/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">BROADCAST FEATURE</span><strong>Kapuso Mo, Jessica Soho</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="5CSxitjlhVM" data-title="Go Humans">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/5CSxitjlhVM/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">BROADCAST FEATURE</span><strong>Go Humans</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="3SisfqeMVvU" data-title="Arlyn dela Cruz Reports">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/3SisfqeMVvU/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">BROADCAST FEATURE</span><strong>Arlyn dela Cruz Reports</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="aoGgSiW8b9c" data-title="Korina Sanchez">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/aoGgSiW8b9c/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">CONVERSATION</span><strong>Korina Sanchez</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="Dp6V5yBqUzA" data-title="Noli de Castro">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/Dp6V5yBqUzA/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">CONVERSATION</span><strong>Noli de Castro</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="JrcQKQRr1Y8" data-title="Ted Failon">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/JrcQKQRr1Y8/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">CONVERSATION</span><strong>Ted Failon</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="S8czx44Sav8" data-title="Angel Locsin">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/S8czx44Sav8/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">CONVERSATION</span><strong>Angel Locsin</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-  <button class="media-card video-trigger" type="button" data-video="cODu7l2BL9w" data-title="Dingdong Dantes">
-    <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/cODu7l2BL9w/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
-    <span class="media-meta"><span class="media-type">CONVERSATION</span><strong>Dingdong Dantes</strong><span class="media-watch">Watch video ↗</span></span>
-  </button>
-</div></section>
+    <section class="media-section section-wrap" id="media" aria-labelledby="media-title">
+      <div class="section-head"><div><p class="eyebrow">{{ media.eyebrow | escape }}</p><h2 id="media-title">{{ media.heading | escape }}</h2></div><p>{{ media.introduction | escape }}</p></div>
+      <div id="media-grid" class="media-grid">
+        {% for item in media.items %}
+        <button class="media-card video-trigger" type="button" data-video="{{ item.video_id | escape }}" data-title="{{ item.title | escape }}">
+          <span class="media-thumb" style="--thumb:url('https://i.ytimg.com/vi/{{ item.video_id | escape }}/hqdefault.jpg')"><span class="media-play" aria-hidden="true">▶</span></span>
+          <span class="media-meta"><span class="media-type">{{ item.type | escape }}</span><strong>{{ item.title | escape }}</strong><span class="media-watch">Watch video ↗</span></span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
 
-    <section class="reading-section"><div class="section-wrap"><div class="section-head"><div><p class="eyebrow">IN PRINT & ONLINE</p><h2>Keep reading.</h2></div><p>Features and stories from publications and partner organizations.</p></div><div id="publication-grid" class="link-grid">
-  <a class="publication-link" href="https://bit.ly/3UGs26w" target="_blank" rel="noopener noreferrer"><span>Tatler Asia</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://bit.ly/3HYPODt" target="_blank" rel="noopener noreferrer"><span>South China Morning Post</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://modernparenting-onemega.com/ace-and-andie-estrada-raising-farmers-and-families" target="_blank" rel="noopener noreferrer"><span>Modern Parenting</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://www.philstar.com/lifestyle/food-and-leisure/2024/04/08/2346215/culinary-feast-noble-cause" target="_blank" rel="noopener noreferrer"><span>The Philippine Star</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://tinyurl.com/wc9dpuvh" target="_blank" rel="noopener noreferrer"><span>Tzu Chi Philippines</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://tinyurl.com/2c56h6uy" target="_blank" rel="noopener noreferrer"><span>The Philippine Daily Inquirer</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://foodsystems.adb.org/node/3081" target="_blank" rel="noopener noreferrer"><span>Asian Development Bank</span><span aria-hidden="true">↗</span></a>
-  <a class="publication-link" href="https://www.facebook.com/share/v/19KBPfNryg/" target="_blank" rel="noopener noreferrer"><span>Dusit Thani Manila</span><span aria-hidden="true">↗</span></a>
-</div></div></section>
+    <section class="reading-section">
+      <div class="section-wrap">
+        <div class="section-head"><div><p class="eyebrow">{{ publications.eyebrow | escape }}</p><h2>{{ publications.heading | escape }}</h2></div><p>{{ publications.introduction | escape }}</p></div>
+        <div id="publication-grid" class="link-grid">
+          {% for item in publications.items %}<a class="publication-link" href="{{ item.url | escape }}" target="_blank" rel="noopener noreferrer"><span>{{ item.title | escape }}</span><span aria-hidden="true">↗</span></a>{% endfor %}
+        </div>
+      </div>
+    </section>
 
-    <section class="section-wrap recognition-section" aria-labelledby="recognition-title"><div class="section-head"><div><p class="eyebrow">04 / RECOGNITION</p><h2 id="recognition-title">The work is being seen.</h2></div></div><div id="awards-list" class="awards-list">
-  <div class="award-row"><span class="award-year">2026</span><span>Asian Corporate Excellence and Sustainability (ACES) Award</span>
-    <span class="award-empty"></span>
-  </div>
-  <div class="award-row"><span class="award-year">2025</span><span>ASEAN Women Entrepreneurs Award (AWEN)</span>
-    <a class="award-action" href="https://www.facebook.com/photo/?fbid=1263508309140132&amp;set=pcb.1263508469140116" target="_blank" rel="noopener noreferrer">View source ↗</a>
-  </div>
-  <div class="award-row"><span class="award-year">2025</span><span>Zonta Club – Security Bank Bravo Empowered Women Award</span>
-    <button class="award-action video-trigger" type="button" data-video="8_k-mdneiJs" data-title="Zonta Club – Security Bank Bravo Empowered Women Award">View source <span aria-hidden="true">▶</span></button>
-  </div>
-  <div class="award-row"><span class="award-year">2025</span><span>Agricultural Social Enterprise of the Year – Philippines</span>
-    <a class="award-action" href="https://www.acquisition-international.com/winners/rural-rising-philippines/" target="_blank" rel="noopener noreferrer">View source ↗</a>
-  </div>
-  <div class="award-row"><span class="award-year">2023</span><span>Manuel L. Quezon Gawad Parangal Award</span>
-    <button class="award-action video-trigger" type="button" data-video="lgaXjsVb77Q" data-title="Manuel L. Quezon Gawad Parangal Award">View source <span aria-hidden="true">▶</span></button>
-  </div>
-  <div class="award-row"><span class="award-year">2022</span><span>Ginebra Ako Awards</span>
-    <button class="award-action video-trigger" type="button" data-video="K0guBHL6iiA" data-title="Ginebra Ako Awards">View source <span aria-hidden="true">▶</span></button>
-  </div>
-  <div class="award-row"><span class="award-year">—</span><span>City of Baguio commendation</span>
-    <a class="award-action" href="https://www.facebook.com/share/p/1Fky6Ka3MG/" target="_blank" rel="noopener noreferrer">View source ↗</a>
-  </div>
-  <div class="award-row"><span class="award-year">—</span><span>Senate discussion</span>
-    <button class="award-action video-trigger" type="button" data-video="-eyDkJKnTzo" data-title="Senate discussion">View source <span aria-hidden="true">▶</span></button>
-  </div>
-  <div class="award-row"><span class="award-year">—</span><span>Senate Committee on Agriculture</span>
-    <button class="award-action video-trigger" type="button" data-video="ugoPcR4NEvE" data-title="Senate Committee on Agriculture">View source <span aria-hidden="true">▶</span></button>
-  </div>
-</div><div class="transparency"><span class="small-icon" aria-hidden="true">✓</span><div><h3>Transparency</h3><p>RuRi is a Validated Organization of the global grant-making organization Charities Aid Foundation (CAF) America.</p><a class="inline-link" href="https://validation.cafamerica.org/64a600b6-c7bf-495d-8f08-49affeb3d50e?fbclid=IwAR1LnFUWRDL69wmY0vPnGvJS7vSz3VCQTmzK8EDfQQFEF0I3mUiTQ_MjVvI#gs.6vm4mj" target="_blank" rel="noopener noreferrer">View the blockchain credential ↗</a></div></div></section>
+    <section class="section-wrap recognition-section" aria-labelledby="recognition-title">
+      <div class="section-head"><div><p class="eyebrow">{{ recognition.eyebrow | escape }}</p><h2 id="recognition-title">{{ recognition.heading | escape }}</h2></div></div>
+      <div id="awards-list" class="awards-list">
+        {% for award in recognition.awards %}
+        <div class="award-row">
+          <span class="award-year">{{ award.year | default: '—' | escape }}</span><span>{{ award.title | escape }}</span>
+          {% if award.source_type == "url" %}<a class="award-action" href="{{ award.source | escape }}" target="_blank" rel="noopener noreferrer">View source ↗</a>
+          {% elsif award.source_type == "video" %}<button class="award-action video-trigger" type="button" data-video="{{ award.source | escape }}" data-title="{{ award.title | escape }}">View source <span aria-hidden="true">▶</span></button>
+          {% else %}<span class="award-empty"></span>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      <div class="transparency"><span class="small-icon" aria-hidden="true">✓</span><div><h3>{{ recognition.transparency_heading | escape }}</h3><p>{{ recognition.transparency_text | escape }}</p><a class="inline-link" href="{{ recognition.transparency_url | escape }}" target="_blank" rel="noopener noreferrer">{{ recognition.transparency_link_label | escape }} ↗</a></div></div>
+    </section>
 
-    <section class="songs-section" aria-labelledby="songs-title"><div class="section-wrap"><div class="section-head"><div><p class="eyebrow light">05 / THE SOUND OF RURI</p><h2 id="songs-title">RuRi in songs.</h2></div><p>Press play and listen without leaving the page.</p></div><div id="songs-grid" class="songs-grid">
-  <button class="song-card video-trigger" type="button" data-video="69PcdQkLR-s" data-title="Rise, RuRi Rise">
-    <span class="song-index">TRACK 01</span>
-    <span class="song-disc" aria-hidden="true"><span>▶</span></span>
-    <strong>Rise, RuRi Rise</strong><span class="song-play">Listen now ↗</span>
-  </button>
-  <button class="song-card video-trigger" type="button" data-video="_uq_MplCagw" data-title="Tara Sa RuRi Na">
-    <span class="song-index">TRACK 02</span>
-    <span class="song-disc" aria-hidden="true"><span>▶</span></span>
-    <strong>Tara Sa RuRi Na</strong><span class="song-play">Listen now ↗</span>
-  </button>
-  <button class="song-card video-trigger" type="button" data-video="SRwraBHaJ84" data-title="Rescue Buy Rap">
-    <span class="song-index">TRACK 03</span>
-    <span class="song-disc" aria-hidden="true"><span>▶</span></span>
-    <strong>Rescue Buy Rap</strong><span class="song-play">Listen now ↗</span>
-  </button>
-  <button class="song-card video-trigger" type="button" data-video="1j7jgiWuwc0" data-title="U.P. College of Music rendition">
-    <span class="song-index">TRACK 04</span>
-    <span class="song-disc" aria-hidden="true"><span>▶</span></span>
-    <strong>U.P. College of Music rendition</strong><span class="song-play">Listen now ↗</span>
-  </button>
-</div></div></section>
+    <section class="songs-section" aria-labelledby="songs-title">
+      <div class="section-wrap">
+        <div class="section-head"><div><p class="eyebrow light">{{ songs.eyebrow | escape }}</p><h2 id="songs-title">{{ songs.heading | escape }}</h2></div><p>{{ songs.introduction | escape }}</p></div>
+        <div id="songs-grid" class="songs-grid">
+          {% for item in songs.items %}
+          <button class="song-card video-trigger" type="button" data-video="{{ item.video_id | escape }}" data-title="{{ item.title | escape }}">
+            <span class="song-index">TRACK {{ forloop.index | prepend: '0' | slice: -2, 2 }}</span><span class="song-disc" aria-hidden="true"><span>▶</span></span><strong>{{ item.title | escape }}</strong><span class="song-play">Listen now ↗</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
 
-    <section class="join-section section-wrap" id="join" aria-labelledby="join-title"><div><p class="eyebrow">BE PART OF THE STORY</p><h2 id="join-title">There’s room for you here.</h2></div><div class="join-copy"><p>RuRi welcomes opportunities to work with companies and organizations, invitations to deliver the talk “The Accidental Advocacy of Rural Rising Ph,” and service learning and team-building camps at Camp Mingan.</p><p>Donations help acquire post-harvest processing equipment, conduct farmer trainings, and build vegetable tramlines or foot bridges.</p><a class="button button-dark" href="mailto:ace@ruralrisingph.com">Start a conversation <span aria-hidden="true">↗</span></a><div class="donation-details"><h3>Donation channels</h3><p><strong>GCash</strong> 0917 501 7787 · Armando II<br><strong>Asian United Bank</strong> SA # 545-11-000128-5 · Rural Rising Philippines</p></div></div></section>
+    <section class="join-section section-wrap" id="join" aria-labelledby="join-title">
+      <div><p class="eyebrow">{{ join.eyebrow | escape }}</p><h2 id="join-title">{{ join.heading | escape }}</h2></div>
+      <div class="join-copy">
+        {% for paragraph in join.paragraphs %}<p>{{ paragraph | escape }}</p>{% endfor %}
+        <a class="button button-dark" href="mailto:{{ join.contact_email | escape }}">{{ join.contact_label | escape }} <span aria-hidden="true">↗</span></a>
+        <div class="donation-details"><h3>{{ join.donation_heading | escape }}</h3><p>{% for channel in join.donation_channels %}<strong>{{ channel.name | escape }}</strong> {{ channel.details | escape }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</p></div>
+      </div>
+    </section>
   </main>
-  <footer class="footer"><div class="section-wrap footer-inner"><span>Rural Rising Philippines</span><span>From farmer to family, with care.</span><a href="#top">Back to top ↑</a></div></footer>
 
-  <div id="video-modal" class="modal" hidden><div class="modal-backdrop" data-close="true"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-top"><div><p class="eyebrow">RURAL RISING VIDEO</p><h2 id="modal-title"></h2></div><button class="modal-close" type="button" aria-label="Close video">×</button></div><div class="video-frame"><iframe id="video-player" title="Rural Rising video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><a id="modal-original" target="_blank" rel="noopener noreferrer" href="#">Watch on YouTube ↗</a></div></div>
+  <footer class="footer"><div class="section-wrap footer-inner"><span>{{ settings.footer_name | escape }}</span><span>{{ settings.footer_tagline | escape }}</span><a href="#top">Back to top ↑</a></div></footer>
+
+  <div id="video-modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <div class="modal-top"><div><p class="eyebrow">RURAL RISING VIDEO</p><h2 id="modal-title"></h2></div><button class="modal-close" type="button" aria-label="Close video">×</button></div>
+      <div class="video-frame"><iframe id="video-player" title="Rural Rising video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <a id="modal-original" target="_blank" rel="noopener noreferrer" href="#">Watch on YouTube ↗</a>
+    </div>
+  </div>
 </body>
 </html>

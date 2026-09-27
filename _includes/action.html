@@ -1,0 +1,6 @@
+{% assign action = include.action %}
+{% if action.type == "url" %}
+<a class="action-link" href="{{ action.target | escape }}" target="_blank" rel="noopener noreferrer">{{ action.label | escape }} ↗</a>
+{% elsif action.type == "video" %}
+<button class="action-link video-trigger" type="button" data-video="{{ action.target | escape }}" data-title="{{ include.title | escape }}">{{ action.label | escape }} <span aria-hidden="true">▶</span></button>
+{% endif %}
