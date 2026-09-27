@@ -1,0 +1,514 @@
+media:
+  input: assets
+  output: /assets
+  rename: safe
+  categories: [image]
+
+settings:
+  commit:
+    templates:
+      create: "content: create {filename}"
+      update: "content: update {filename}"
+      delete: "content: remove {filename}"
+
+components:
+  action:
+    type: object
+    fields:
+      - name: label
+        label: Button label
+        type: string
+        required: true
+      - name: type
+        label: Destination type
+        type: select
+        required: true
+        options:
+          values:
+            - name: video
+              label: YouTube video
+            - name: url
+              label: External website
+      - name: target
+        label: YouTube ID or full URL
+        type: string
+        required: true
+        description: Use the 11-character YouTube video ID for videos, or a complete https:// address for websites.
+
+content:
+  - name: website
+    label: Website content
+    type: group
+    items:
+      - name: site_settings
+        label: General settings
+        type: file
+        path: _data/site.json
+        format: json
+        fields:
+          - name: meta_title
+            label: Browser title
+            type: string
+            required: true
+          - name: meta_description
+            label: Search description
+            type: text
+            required: true
+            options:
+              maxlength: 180
+          - name: theme_color
+            label: Browser theme color
+            type: string
+            required: true
+            pattern: "^#[0-9A-Fa-f]{6}$"
+          - name: logo
+            label: Logo and browser icon
+            type: image
+            required: true
+          - name: brand_name
+            label: Brand name
+            type: string
+            required: true
+          - name: brand_suffix
+            label: Brand suffix
+            type: string
+            required: true
+          - name: contact_label
+            label: Header contact label
+            type: string
+            required: true
+          - name: contact_email
+            label: Header contact email
+            type: string
+            required: true
+          - name: navigation
+            label: Navigation
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                type: string
+                required: true
+              - name: anchor
+                label: Section anchor
+                type: string
+                required: true
+                pattern: "^[a-z0-9-]+$"
+          - name: footer_name
+            label: Footer name
+            type: string
+            required: true
+          - name: footer_tagline
+            label: Footer tagline
+            type: string
+            required: true
+
+      - name: hero
+        label: Hero
+        type: file
+        path: _data/hero.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: title_prefix
+            label: Main title
+            type: string
+            required: true
+          - name: title_emphasis
+            label: Italic title text
+            type: string
+            required: true
+          - name: body
+            label: Introduction
+            type: text
+            required: true
+          - name: video_label
+            label: Video button label
+            type: string
+            required: true
+          - name: video_title
+            label: Video title
+            type: string
+            required: true
+          - name: video_id
+            label: YouTube video ID
+            type: string
+            required: true
+            pattern:
+              regex: "^[A-Za-z0-9_-]{11}$"
+              message: Enter only the 11-character YouTube video ID.
+          - name: image
+            label: Hero image
+            type: image
+            required: true
+          - name: image_alt
+            label: Hero image description
+            type: text
+            required: true
+            description: Describe the image for visitors using screen readers.
+          - name: image_label
+            label: Image button label
+            type: string
+            required: true
+          - name: caption_left
+            label: Left caption
+            type: string
+            required: true
+          - name: caption_right
+            label: Right caption
+            type: string
+            required: true
+
+      - name: story
+        label: Our story
+        type: file
+        path: _data/story.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: body
+            label: Story content
+            type: rich-text
+            required: true
+            options:
+              format: html
+              media: false
+          - name: links
+            label: Social and section links
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                type: string
+                required: true
+              - name: url
+                type: string
+                required: true
+              - name: external
+                label: Open in a new tab
+                type: boolean
+
+      - name: impact
+        label: Impact figures
+        type: file
+        path: _data/impact.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: statistics
+            label: Statistics
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{value} — {label}"
+            fields:
+              - name: value
+                type: string
+                required: true
+              - name: label
+                type: string
+                required: true
+          - name: note
+            label: Source note
+            type: text
+            required: true
+
+      - name: programs
+        label: Programs
+        type: file
+        path: _data/programs.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: introduction
+            type: text
+            required: true
+          - name: items
+            label: Program cards
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: description
+                type: text
+                required: true
+              - name: actions
+                label: Buttons and links
+                component: action
+                list:
+                  collapsible:
+                    collapsed: true
+                    summary: "{label}"
+
+      - name: origin
+        label: People and produce
+        type: file
+        path: _data/origin.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: images
+            label: Image cards
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{caption}"
+            fields:
+              - name: image
+                type: image
+                required: true
+              - name: alt
+                label: Image description
+                type: text
+                required: true
+              - name: caption
+                type: string
+                required: true
+
+      - name: media
+        label: Media features
+        type: file
+        path: _data/media.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: introduction
+            type: text
+            required: true
+          - name: items
+            label: Videos
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: type
+                label: Feature type
+                type: select
+                required: true
+                options:
+                  values: [BROADCAST FEATURE, CONVERSATION]
+              - name: video_id
+                label: YouTube video ID
+                type: string
+                required: true
+                pattern:
+                  regex: "^[A-Za-z0-9_-]{11}$"
+                  message: Enter only the 11-character YouTube video ID.
+
+      - name: publications
+        label: Publications
+        type: file
+        path: _data/publications.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: introduction
+            type: text
+            required: true
+          - name: items
+            label: Publication links
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: url
+                label: Full URL
+                type: string
+                required: true
+
+      - name: recognition
+        label: Recognition
+        type: file
+        path: _data/recognition.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: awards
+            label: Awards and recognition
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{year} {title}"
+            fields:
+              - name: year
+                type: string
+              - name: title
+                type: string
+                required: true
+              - name: source_type
+                label: Source type
+                type: select
+                required: true
+                options:
+                  values:
+                    - name: none
+                      label: No source
+                    - name: url
+                      label: External website
+                    - name: video
+                      label: YouTube video
+              - name: source
+                label: Full URL or YouTube ID
+                type: string
+          - name: transparency_heading
+            label: Transparency heading
+            type: string
+            required: true
+          - name: transparency_text
+            label: Transparency description
+            type: text
+            required: true
+          - name: transparency_link_label
+            label: Transparency link label
+            type: string
+            required: true
+          - name: transparency_url
+            label: Transparency URL
+            type: string
+            required: true
+
+      - name: songs
+        label: Songs
+        type: file
+        path: _data/songs.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: introduction
+            type: text
+            required: true
+          - name: items
+            label: Tracks
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                type: string
+                required: true
+              - name: video_id
+                label: YouTube video ID
+                type: string
+                required: true
+                pattern:
+                  regex: "^[A-Za-z0-9_-]{11}$"
+                  message: Enter only the 11-character YouTube video ID.
+
+      - name: join
+        label: Get involved and donations
+        type: file
+        path: _data/join.json
+        format: json
+        fields:
+          - name: eyebrow
+            type: string
+            required: true
+          - name: heading
+            type: string
+            required: true
+          - name: paragraphs
+            label: Description paragraphs
+            type: text
+            list:
+              min: 1
+          - name: contact_label
+            label: Contact button label
+            type: string
+            required: true
+          - name: contact_email
+            label: Contact email
+            type: string
+            required: true
+          - name: donation_heading
+            label: Donation heading
+            type: string
+            required: true
+          - name: donation_channels
+            label: Donation channels
+            type: object
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                type: string
+                required: true
+              - name: details
+                type: string
+                required: true
